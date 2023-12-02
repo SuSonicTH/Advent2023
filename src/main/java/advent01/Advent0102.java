@@ -1,13 +1,11 @@
 package advent01;
 
 import java.io.IOException;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.stream.Stream;
 
 public class Advent0102 extends Advent01 {
     private static final Pattern FIRST_NUMBER_PATTERN = Pattern.compile("(one|two|three|four|five|six|seven|eight|nine|[0-9]).*");
@@ -37,24 +35,21 @@ public class Advent0102 extends Advent01 {
     }
 
     public static void main(String[] args) throws IOException {
-        try (Stream<String> lines = Files.lines(Path.of("./input/input01.txt"))) {
-            int answer = new Advent0102().sumCalibrationNumbers(lines);
-            System.out.println(answer);
-        }
+        System.out.println(new Advent0102().sumFile(Path.of("./input/input01.txt")));
     }
 
     @Override
-    protected Integer getNumber(String line) {
+    protected int mapLineToNumber(String line) {
         Matcher matcher = FIRST_NUMBER_PATTERN.matcher(line);
         matcher.find();
-        int first =  NUMBER_MAP.get(matcher.group(1));
+        int first = NUMBER_MAP.get(matcher.group(1));
         int last = first;
 
         matcher = SECOND_NUMBER_PATTERN.matcher(line);
-        if (matcher.find()){
-            last =  NUMBER_MAP.get(matcher.group(1));
+        if (matcher.find()) {
+            last = NUMBER_MAP.get(matcher.group(1));
         }
 
-        return first*10+last;
+        return first * 10 + last;
     }
 }

@@ -1,25 +1,16 @@
 package advent01;
 
+import advent.Advent;
+
 import java.io.IOException;
-import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.stream.Stream;
 
-public class Advent01 {
+public class Advent01 extends Advent {
     public static void main(String[] args) throws IOException {
-        try (Stream<String> lines = Files.lines(Path.of("./input/input01.txt"))) {
-            int answer = new Advent01().sumCalibrationNumbers(lines);
-            System.out.println(answer);
-        }
+        System.out.println(new Advent01().sumFile(Path.of("./input/input01.txt")));
     }
 
-    public int sumCalibrationNumbers(Stream<String> stream) {
-        return stream
-                .mapToInt(this::getNumber)
-                .sum();
-    }
-
-    protected Integer getNumber(String line) {
+    protected int mapLineToNumber(String line) {
         int first = 0;
         int last = 0;
         for (char c : line.toCharArray()) {
