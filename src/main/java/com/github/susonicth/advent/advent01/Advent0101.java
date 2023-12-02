@@ -1,14 +1,8 @@
-package advent01;
+package com.github.susonicth.advent.advent01;
 
-import advent.Advent;
+import com.github.susonicth.advent.Advent;
 
-import java.io.IOException;
-import java.nio.file.Path;
-
-public class Advent01 extends Advent {
-    public static void main(String[] args) throws IOException {
-        System.out.println(new Advent01().sumFile(Path.of("./input/input01.txt")));
-    }
+public class Advent0101 extends Advent {
 
     protected int mapLineToNumber(String line) {
         int first = 0;

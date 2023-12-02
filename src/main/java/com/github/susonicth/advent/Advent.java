@@ -1,4 +1,4 @@
-package advent;
+package com.github.susonicth.advent;
 
 import java.io.IOException;
 import java.nio.file.Files;

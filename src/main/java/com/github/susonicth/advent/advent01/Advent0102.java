@@ -1,13 +1,13 @@
-package advent01;
+package com.github.susonicth.advent.advent01;
 
-import java.io.IOException;
-import java.nio.file.Path;
+import com.github.susonicth.advent.Advent;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Advent0102 extends Advent01 {
+public class Advent0102 extends Advent {
     private static final Pattern FIRST_NUMBER_PATTERN = Pattern.compile("(one|two|three|four|five|six|seven|eight|nine|[0-9]).*");
     private static final Pattern SECOND_NUMBER_PATTERN = Pattern.compile(".*(one|two|three|four|five|six|seven|eight|nine|[0-9])");
     private static final Map<String, Integer> NUMBER_MAP = new HashMap<>();
@@ -32,10 +32,6 @@ public class Advent0102 extends Advent01 {
         NUMBER_MAP.put("7", 7);
         NUMBER_MAP.put("8", 8);
         NUMBER_MAP.put("9", 9);
-    }
-
-    public static void main(String[] args) throws IOException {
-        System.out.println(new Advent0102().sumFile(Path.of("./input/input01.txt")));
     }
 
     @Override

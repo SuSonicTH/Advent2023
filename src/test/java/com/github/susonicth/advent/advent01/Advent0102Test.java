@@ -1,8 +1,9 @@
-package advent01;
+package com.github.susonicth.advent.advent01;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.stream.Stream;
+import java.io.IOException;
+import java.nio.file.Path;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -48,16 +49,7 @@ class Advent0102Test {
     }
 
     @Test
-    void sampleInputIsCalculatedCorrectly() {
-        assertEquals(281, new Advent0102().sumLines(
-                Stream.of(
-                        "two1nine",
-                        "eightwothree",
-                        "abcone2threexyz",
-                        "xtwone3four",
-                        "4nineeightseven2",
-                        "zoneight234",
-                        "7pqrstsixteen"
-                )));
+    void sampleInputIsCalculatedCorrectly() throws IOException {
+        assertEquals(281, new Advent0102().sumFile(Path.of("./input/sample0102.txt")));
     }
 }

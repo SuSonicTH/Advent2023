@@ -1,4 +1,4 @@
-package advent02;
+package com.github.susonicth.advent.advent02;
 
 import java.util.ArrayList;
 import java.util.List;
