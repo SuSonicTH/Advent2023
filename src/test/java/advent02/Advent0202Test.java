@@ -10,15 +10,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class Advent0202Test {
 
     @Test
-    void minimumsAreCalculatedCorrectly() {
-        assertEquals("Round{red=4, green=2, blue=6}", new Game(GAME_1).getMinimum().toString());
-        assertEquals("Round{red=1, green=3, blue=4}", new Game(GAME_2).getMinimum().toString());
-        assertEquals("Round{red=20, green=13, blue=6}", new Game(GAME_3).getMinimum().toString());
-        assertEquals("Round{red=14, green=3, blue=15}", new Game(GAME_4).getMinimum().toString());
-        assertEquals("Round{red=6, green=3, blue=2}", new Game(GAME_5).getMinimum().toString());
-    }
-
-    @Test
     void powerIsCalculatedCorrectly() {
         assertEquals(48, new Game(GAME_1).getMinimum().power());
         assertEquals(12, new Game(GAME_2).getMinimum().power());

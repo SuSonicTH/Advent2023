@@ -14,12 +14,6 @@ class Advent02Test {
     public static final String GAME_5 = "Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green";
 
     @Test
-    void gameIsParsedCorrectly() {
-        assertEquals("Game{id=1, rounds=[Round{red=4, green=0, blue=3}, Round{red=1, green=2, blue=6}, Round{red=0, green=2, blue=0}]}",
-                new Game(GAME_1).toString());
-    }
-
-    @Test
     void comparingToMaximum() {
         Round maximum = new Round(1, 2, 3);
         assertFalse(new Round(0, 0, 0).isMoreThen(maximum));

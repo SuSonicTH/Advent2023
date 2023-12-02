@@ -38,14 +38,6 @@ public class Game {
         return id;
     }
 
-    @Override
-    public String toString() {
-        return "Game{" +
-                "id=" + id +
-                ", rounds=" + rounds +
-                '}';
-    }
-
     public Round getMinimum() {
         int red = 0;
         int green = 0;

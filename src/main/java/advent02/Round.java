@@ -41,15 +41,6 @@ public class Round {
         }
     }
 
-    @Override
-    public String toString() {
-        return "Round{" +
-                "red=" + red +
-                ", green=" + green +
-                ", blue=" + blue +
-                '}';
-    }
-
     public int getRed() {
         return red;
     }
