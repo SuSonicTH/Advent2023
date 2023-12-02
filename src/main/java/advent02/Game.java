@@ -14,24 +14,28 @@ public class Game {
     private final List<Round> rounds = new ArrayList<>();
 
     public Game(String line) {
+        Matcher gameMatcher = matchLineOrThrow(line);
+        id = Integer.parseInt(gameMatcher.group(1));
+        parseRounds(gameMatcher.group(2));
+    }
+
+    private static Matcher matchLineOrThrow(String line) {
         Matcher gameMatcher = GAME_PATTERN.matcher(line);
         if (!gameMatcher.matches()) {
             throw new IllegalStateException("Could not parse game id from input '" + line + "'");
         }
-        id = Integer.parseInt(gameMatcher.group(1));
-        Matcher roundMatcher = ROUND_PATTERN.matcher(gameMatcher.group(2));
+        return gameMatcher;
+    }
+
+    private void parseRounds(String input) {
+        Matcher roundMatcher = ROUND_PATTERN.matcher(input);
         while (roundMatcher.find()) {
             rounds.add(new Round(roundMatcher.group(1)));
         }
     }
 
     public boolean isPossible() {
-        for (Round round : rounds) {
-            if (round.isMoreThen(MAXIMUM)) {
-                return false;
-            }
-        }
-        return true;
+        return rounds.stream().filter(round -> round.isMoreThen(MAXIMUM)).findAny().isEmpty();
     }
 
     public int getId() {
@@ -39,20 +43,6 @@ public class Game {
     }
 
     public Round getMinimum() {
-        int red = 0;
-        int green = 0;
-        int blue = 0;
-        for (Round round : rounds) {
-            if (round.getRed() > red) {
-                red = round.getRed();
-            }
-            if (round.getGreen() > green) {
-                green = round.getGreen();
-            }
-            if (round.getBlue() > blue) {
-                blue = round.getBlue();
-            }
-        }
-        return new Round(red, green, blue);
+        return rounds.stream().reduce(new Round(0, 0, 0), Round::max);
     }
 }

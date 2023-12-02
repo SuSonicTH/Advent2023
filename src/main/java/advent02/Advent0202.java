@@ -13,7 +13,6 @@ public class Advent0202 extends Advent {
 
     @Override
     protected int mapLineToNumber(String line) {
-        Game game = new Game(line);
-        return game.getMinimum().power();
+        return new Game(line).getMinimum().power();
     }
 }

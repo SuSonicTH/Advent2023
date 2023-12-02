@@ -1,16 +1,10 @@
 package advent02;
 
-import java.util.Comparator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Round {
     private static final Pattern ROUND_PATTERN = Pattern.compile(" *(\\d+) +([^,]+)(,|$)");
-    private static final Comparator<Round> COMPARATOR = Comparator
-            .comparing(Round::getRed)
-            .thenComparing(Round::getGreen)
-            .thenComparing(Round::getBlue);
-
     private int red = 0;
     private int green = 0;
     private int blue = 0;
@@ -41,23 +35,19 @@ public class Round {
         }
     }
 
-    public int getRed() {
-        return red;
-    }
-
-    public int getGreen() {
-        return green;
-    }
-
-    public int getBlue() {
-        return blue;
-    }
-
     public boolean isMoreThen(Round maximum) {
         return red > maximum.red || green > maximum.green || blue > maximum.blue;
     }
 
     public int power() {
         return red * green * blue;
+    }
+
+    public Round max(Round other) {
+        return new Round(
+                Math.max(red, other.red),
+                Math.max(green, other.green),
+                Math.max(blue, other.blue)
+        );
     }
 }
