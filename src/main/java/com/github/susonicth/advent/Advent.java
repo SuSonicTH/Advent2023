@@ -17,6 +17,8 @@ public abstract class Advent {
         return stream.mapToInt(this::mapLineToNumber).sum();
     }
 
-    protected abstract int mapLineToNumber(String line);
+    protected int mapLineToNumber(String line) {
+        return 0;
+    }
 
 }
