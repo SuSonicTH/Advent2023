@@ -23,8 +23,7 @@ public class Card {
     }
 
     public int getScore() {
-        int matches = getMatchingNumbers();
-        return matches == 0 ? 0 : 1 << (matches - 1);
+        return 1 << getMatchingNumbers() >> 1;
     }
 
     public int getMatchingNumbers() {
