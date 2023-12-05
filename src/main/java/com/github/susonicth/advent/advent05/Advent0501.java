@@ -22,7 +22,7 @@ public class Advent0501 extends Advent {
 
     @Override
     public int sumFile(Path file) throws IOException {
-        return (int)loadFile(file).mapToLong(this::getLocation).min().orElseThrow();
+        return (int) loadFile(file).parallel().mapToLong(this::getLocation).min().orElseThrow();
     }
 
     Stream<Long> loadFile(Path file) throws IOException {
