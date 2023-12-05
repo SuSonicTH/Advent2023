@@ -34,7 +34,7 @@ import java.nio.file.Path;
 import static org.junit.jupiter.api.Assertions.*;
 
 class Advent${day}01Test {
-    public static final Path SAMPLE_FILE = Path.of("./input/sample${day}01.txt");
+    public static final Path SAMPLE_FILE = Path.of(\"./input/sample${day}01.txt\");
 
     @Test
     void sampleFileSummedUpCorrectly() throws IOException {
