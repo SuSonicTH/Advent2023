@@ -1,11 +1,18 @@
 package com.github.susonicth.advent.advent05;
 
+import java.io.IOException;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.LongStream;
 import java.util.stream.Stream;
 
 public class Advent0502 extends Advent0501 {
+
+    @Override
+    public int sumFile(Path file) throws IOException {
+        return 0;
+    }
     /*
     BAD brute force implementation is really slow
     I'm to lazy todo the proper implementation of geeping seeds as ranges and map (split) them
