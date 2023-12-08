@@ -35,7 +35,7 @@ public class Advent0601 extends Advent {
     }
 
     private List<Long> readNumbers(String line) {
-        return Arrays.stream(line.replaceAll(" +", "     ").split(" "))
+        return Arrays.stream(line.replaceAll(" +", " ").split(" "))
                 .skip(1)
                 .map(Long::parseLong)
                 .toList();
