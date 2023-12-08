@@ -2,24 +2,23 @@ package com.github.susonicth.advent.advent07;
 
 import com.github.susonicth.advent.Advent;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
+import java.util.stream.Stream;
 
 public class Advent0701 extends Advent {
+    private int rank = 1;
 
     boolean withJoker() {
         return false;
     }
 
     @Override
-    public int sumFile(Path file) throws IOException {
-        int sum = 0;
-        int rank = 1;
-        for (Play play : Files.readAllLines(file).stream().map(line -> new Play(line, withJoker())).sorted().toList()) {
-            sum += (rank++) * play.bid;
-        }
-        return sum;
+    public int sumLines(Stream<String> stream) {
+        return stream.map(line -> new Play(line, withJoker())).sorted().mapToInt(this::getWinning).sum();
     }
+
+    private int getWinning(Play play) {
+        return (rank++) * play.bid;
+    }
+
 }
 
