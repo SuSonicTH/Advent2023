@@ -7,7 +7,7 @@ import java.util.Set;
 
 public class Advent0302 extends Advent0301 {
     @Override
-    public int sumFile(Path file) throws IOException {
+    public long sumFile(Path file) throws IOException {
         int sum = 0;
         lines = Files.readAllLines(file);
         for (int y = 0; y < lines.size(); y++) {

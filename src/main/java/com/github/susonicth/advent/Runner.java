@@ -24,7 +24,7 @@ public class Runner {
 
     private void runTask(Advent advent, int day, int task) throws IOException {
         Path inputFile = INPUT_PATH.resolve(String.format("input%02d.txt", day));
-        int code = advent.sumFile(inputFile);
+        long code = advent.sumFile(inputFile);
         System.out.println("Day " + day + " " + task + ": " + code);
     }
 

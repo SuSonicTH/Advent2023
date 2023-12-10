@@ -12,7 +12,7 @@ import java.util.List;
 public class Advent0601 extends Advent {
 
     @Override
-    public int sumFile(Path file) throws IOException {
+    public long sumFile(Path file) throws IOException {
         List<String> lines = Files.readAllLines(file);
         List<Long> times = readNumbers(lines.get(0));
         List<Long> distance = readNumbers(lines.get(1));

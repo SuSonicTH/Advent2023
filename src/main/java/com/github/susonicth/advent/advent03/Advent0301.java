@@ -14,7 +14,7 @@ public class Advent0301 extends Advent {
     protected List<String> lines;
 
     @Override
-    public int sumFile(Path file) throws IOException {
+    public long sumFile(Path file) throws IOException {
         lines = Files.readAllLines(file);
         for (int y = 0; y < lines.size(); y++) {
             for (int x = 0; x < lines.get(y).length(); x++) {

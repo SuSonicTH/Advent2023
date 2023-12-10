@@ -7,7 +7,7 @@ import java.util.stream.Stream;
 
 public abstract class Advent {
 
-    public int sumFile(Path file) throws IOException {
+    public long sumFile(Path file) throws IOException {
         try (Stream<String> lines = Files.lines(file)) {
             return sumLines(lines);
         }

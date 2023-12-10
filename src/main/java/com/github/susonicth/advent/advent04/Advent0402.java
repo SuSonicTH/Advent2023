@@ -10,7 +10,7 @@ import java.util.List;
 public class Advent0402 extends Advent {
 
     @Override
-    public int sumFile(Path file) throws IOException {
+    public long sumFile(Path file) throws IOException {
         int cardCount = 0;
         List<Card> cards = Files.readAllLines(file).stream().map(Card::new).toList();
         for (int i = 0; i < cards.size(); i++) {

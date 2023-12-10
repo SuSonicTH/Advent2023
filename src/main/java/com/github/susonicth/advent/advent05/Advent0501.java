@@ -21,7 +21,7 @@ public class Advent0501 extends Advent {
     private RangeMap humidityTolocation;
 
     @Override
-    public int sumFile(Path file) throws IOException {
+    public long sumFile(Path file) throws IOException {
         return (int) loadFile(file).parallel().mapToLong(this::getLocation).min().orElseThrow();
     }
 

@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 public class Advent0502 extends Advent0501 {
 
     @Override
-    public int sumFile(Path file) throws IOException {
+    public long sumFile(Path file) throws IOException {
         return 0;
     }
     /*
