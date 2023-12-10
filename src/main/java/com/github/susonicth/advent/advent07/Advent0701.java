@@ -12,7 +12,7 @@ public class Advent0701 extends Advent {
     }
 
     @Override
-    public int sumLines(Stream<String> stream) {
+    public long sumLines(Stream<String> stream) {
         return stream.map(line -> new Play(line, withJoker())).sorted().mapToInt(this::getWinning).sum();
     }
 

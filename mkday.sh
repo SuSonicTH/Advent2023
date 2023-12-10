@@ -50,3 +50,9 @@ cat $mainDir/Advent${day}01.java | sed -e "s/${day}01/${day}02/" > $mainDir/Adve
 mkdir $testDir
 echo "$testFile" > $testDir/Advent${day}01Test.java
 cat $testDir/Advent${day}01Test.java | sed -e "s/${day}01/${day}02/" > $testDir/Advent${day}02Test.java
+
+
+git add $mainDir/Advent${day}01.java
+git add $mainDir/Advent${day}02.java
+git add $testDir/Advent${day}01Test.java
+git add $testDir/Advent${day}02Test.java

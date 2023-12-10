@@ -13,11 +13,11 @@ public abstract class Advent {
         }
     }
 
-    public int sumLines(Stream<String> stream) {
-        return stream.mapToInt(this::mapLineToNumber).sum();
+    public long sumLines(Stream<String> stream) {
+        return stream.mapToLong(this::mapLineToNumber).sum();
     }
 
-    protected int mapLineToNumber(String line) {
+    protected long mapLineToNumber(String line) {
         return 0;
     }
 

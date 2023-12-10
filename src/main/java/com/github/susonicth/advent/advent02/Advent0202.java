@@ -5,7 +5,7 @@ import com.github.susonicth.advent.Advent;
 public class Advent0202 extends Advent {
 
     @Override
-    protected int mapLineToNumber(String line) {
+    protected long mapLineToNumber(String line) {
         return new Game(line).getMinimum().power();
     }
 }

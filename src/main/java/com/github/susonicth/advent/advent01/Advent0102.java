@@ -35,7 +35,7 @@ public class Advent0102 extends Advent {
     }
 
     @Override
-    protected int mapLineToNumber(String line) {
+    protected long mapLineToNumber(String line) {
         Matcher matcher = FIRST_NUMBER_PATTERN.matcher(line);
         matcher.find();
         int first = NUMBER_MAP.get(matcher.group(1));
@@ -46,6 +46,6 @@ public class Advent0102 extends Advent {
             last = NUMBER_MAP.get(matcher.group(1));
         }
 
-        return first * 10 + last;
+        return first * 10L + last;
     }
 }

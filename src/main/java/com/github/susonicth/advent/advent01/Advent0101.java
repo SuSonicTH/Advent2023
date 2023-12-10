@@ -4,7 +4,7 @@ import com.github.susonicth.advent.Advent;
 
 public class Advent0101 extends Advent {
 
-    protected int mapLineToNumber(String line) {
+    protected long mapLineToNumber(String line) {
         int first = 0;
         int last = 0;
         for (char c : line.toCharArray()) {
