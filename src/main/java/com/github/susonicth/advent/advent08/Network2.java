@@ -10,25 +10,46 @@ public class Network2 extends Network {
     private List<Entry> entries;
     private List<Integer> loop;
 
-
     public Network2(Path file) throws IOException {
         super(file);
     }
 
     public long navigate() {
+        initNavigation();
+        do {
+            advanceEntries();
+            nextStep();
+        } while (notAllAtEnd());
+        return lowestCommonMultiple();
+    }
+
+    private void initNavigation() {
         entries = getStartingEntries();
         loop = new ArrayList<>(entries.size());
         for (int i = 0; i < entries.size(); i++) {
             loop.add(0);
         }
-        while (notAllAtEnd(steps)) {
-            for (int i = 0; i < entries.size(); i++) {
+    }
+
+    private List<Entry> getStartingEntries() {
+        return map.values().stream().filter(e -> e.id.endsWith("A")).collect(Collectors.toList());
+    }
+
+    private void advanceEntries() {
+        for (int i = 0; i < entries.size(); i++) {
+            if (loop.get(i) == 0) {
                 entries.set(i, map.get(entries.get(i).directions[instructions[current_instruction]]));
             }
-            nextStep();
         }
+    }
 
-        return lowestCommonMultiple();
+    private boolean notAllAtEnd() {
+        for (int i = 0; i < entries.size(); i++) {
+            if (loop.get(i) == 0 && entries.get(i).id.endsWith("Z")) {
+                loop.set(i, steps);
+            }
+        }
+        return loop.stream().anyMatch(i -> i == 0);
     }
 
     private long lowestCommonMultiple() {
@@ -39,24 +60,11 @@ public class Network2 extends Network {
         return result;
     }
 
-    public long greatestCommonDivisor(long a, long b) {
+    private long greatestCommonDivisor(long a, long b) {
         return b == 0 ? a : greatestCommonDivisor(b, a % b);
     }
 
     private long lowestCommonMultiple(long a, long b) {
         return a * (b / greatestCommonDivisor(a, b));
-    }
-
-    private List<Entry> getStartingEntries() {
-        return map.values().stream().filter(e -> e.id.endsWith("A")).collect(Collectors.toList());
-    }
-
-    private boolean notAllAtEnd(int steps) {
-        for (int i = 0; i < entries.size(); i++) {
-            if (loop.get(i) == 0 && entries.get(i).id.endsWith("Z")) {
-                loop.set(i, steps);
-            }
-        }
-        return loop.stream().anyMatch(i -> i == 0);
     }
 }

@@ -7,17 +7,19 @@ public class Runner {
     private static final Path INPUT_PATH = Path.of("./input");
 
     public static void main(String[] args) throws Exception {
-        new Runner().run();
+        new Runner().run(args.length == 0 ? null : Integer.parseInt(args[0]));
     }
 
-    private void run() throws Exception {
+    private void run(Integer requestedDay) throws Exception {
         for (int day = 1; day < 24; day++) {
-            for (int task = 1; task <= 2; task++) {
-                Class<Advent> clazz = getClass(day, task);
-                if (clazz == null) {
-                    return;
+            if (requestedDay == null || requestedDay == day) {
+                for (int task = 1; task <= 2; task++) {
+                    Class<Advent> clazz = getClass(day, task);
+                    if (clazz == null) {
+                        return;
+                    }
+                    runTask(clazz.getDeclaredConstructor().newInstance(), day, task);
                 }
-                runTask(clazz.getDeclaredConstructor().newInstance(), day, task);
             }
         }
     }
