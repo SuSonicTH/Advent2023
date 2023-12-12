@@ -1,4 +1,3 @@
-
 package com.github.susonicth.advent.advent09;
 
 import com.github.susonicth.advent.Advent;

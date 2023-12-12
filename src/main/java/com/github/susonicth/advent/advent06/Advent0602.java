@@ -1,4 +1,3 @@
-
 package com.github.susonicth.advent.advent06;
 
 import com.github.susonicth.advent.Advent;
@@ -27,7 +26,7 @@ public class Advent0602 extends Advent {
     }
 
     private long readNumbers(String line) {
-        return Long.parseLong(line.replaceAll(" ", "").split(":")[1]);
+        return Long.parseLong(line.replace(" ", "").split(":")[1]);
     }
 
 }

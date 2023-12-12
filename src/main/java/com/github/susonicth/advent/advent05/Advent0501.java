@@ -1,4 +1,3 @@
-
 package com.github.susonicth.advent.advent05;
 
 import com.github.susonicth.advent.Advent;
@@ -28,12 +27,12 @@ public class Advent0501 extends Advent {
     Stream<Long> loadFile(Path file) throws IOException {
         List<String> lines = Files.readAllLines(file);
         seedToSoil = new RangeMap(lines, "seed-to-soil");
-        soilTofertilizer =  new RangeMap(lines, "soil-to-fertilizer");
-        fertilizerTowater =  new RangeMap(lines, "fertilizer-to-water");
-        waterTolight =  new RangeMap(lines, "water-to-light");
-        lightTotemperature =  new RangeMap(lines, "light-to-temperature");
-        temperatureTohumidity =  new RangeMap(lines, "temperature-to-humidity");
-        humidityTolocation =  new RangeMap(lines, "humidity-to-location");
+        soilTofertilizer = new RangeMap(lines, "soil-to-fertilizer");
+        fertilizerTowater = new RangeMap(lines, "fertilizer-to-water");
+        waterTolight = new RangeMap(lines, "water-to-light");
+        lightTotemperature = new RangeMap(lines, "light-to-temperature");
+        temperatureTohumidity = new RangeMap(lines, "temperature-to-humidity");
+        humidityTolocation = new RangeMap(lines, "humidity-to-location");
         return getSeeds(lines.get(0));
     }
 

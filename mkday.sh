@@ -18,7 +18,7 @@ import com.github.susonicth.advent.Advent;
 public class Advent${day}01 extends Advent {
 
     @Override
-    protected int mapLineToNumber(String line) {
+    protected long mapLineToNumber(String line) {
         return 0;
     }
 }
